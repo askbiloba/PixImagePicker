@@ -71,8 +71,6 @@ private fun manipulateVisibility(
         if (slideOffset > 0 && recyclerView.isInvisible) {
             recyclerView.show()
             topbar.show()
-            activity.showStatusBar()
-
         } else if (recyclerView.isVisible && slideOffset == 0f) {
             recyclerView.invisible()
             topbar.hide()
