@@ -30,18 +30,9 @@ internal class PixViewModel : ViewModel(), PixLifecycle {
 
     private lateinit var options: Options
     suspend fun retrieveImages(localResourceManager: LocalResourceManager) {
-        val sizeInitial = 100
         selectionList.value?.clear()
-        allImagesList.postValue(
-            localResourceManager.retrieveMedia(
-                limit = sizeInitial,
-                mode = options.mode
-            )
-        )
-        val modelList = localResourceManager.retrieveMedia(
-            start = sizeInitial + 1,
-            mode = options.mode
-        )
+        var modelList = localResourceManager.retrieveMedia(
+            mode = options.mode)
         if (modelList.list.isNotEmpty()) {
             allImagesList.postValue(modelList)
         }
