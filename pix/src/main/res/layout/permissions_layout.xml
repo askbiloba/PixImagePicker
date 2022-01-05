@@ -29,7 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="Approve permissions to utilise pix image picker" />
+                android:text="@string/needed_permissions_missing" />
 
             <Button
                 android:id="@+id/permissionButton"
@@ -39,7 +39,7 @@
                 android:layout_marginTop="10dp"
                 android:paddingLeft="24dp"
                 android:paddingRight="24dp"
-                android:text="Ask Again" />
+                android:text="@string/permissions_ask_again" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </com.google.android.material.card.MaterialCardView>
