@@ -8,5 +8,8 @@
     <string name="pix_recent">Récent</string>
     <string name="pix_selected">Séléctionnée(s)</string>
     <string name="pix_tap_to_select">Tappez pour sélectionner</string>
-    <string name="selection_limiter_pix">Vous ne pouvez pas selectionner plus de %d photos</string>
+    <string name="needed_permissions_missing_title">Permissions refusées</string>
+    <string name="needed_permissions_missing">Vous devez accepter toutes les demandes d\'autorisation pour envoyer des photos et vidéos.</string>
+    <string name="permissions_ask_again">Redemander</string>
+
 </resources>

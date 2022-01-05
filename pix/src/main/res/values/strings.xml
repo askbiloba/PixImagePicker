@@ -10,6 +10,10 @@
     <string name="pix_last_month">Last Month</string>
     <string name="pix_last_week">Last Week</string>
     <string name="pix_counter_number">0:00</string>
+    <string name="needed_permissions_missing_title">Permissions denied</string>
+    <string name="needed_permissions_missing">You need to grant all permissions to send pictures and videos.</string>
+    <string name="permissions_ask_again">Ask Again</string>
+
     <!-- content descriptions -->
     <string name="click_button">click button</string>
     <string name="camera_flash_button">camera flash button</string>
