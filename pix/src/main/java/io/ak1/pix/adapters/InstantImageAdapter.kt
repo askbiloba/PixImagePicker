@@ -123,8 +123,8 @@ class InstantImageAdapter(context: Context) :
         }
 
         override fun onLongClick(view: View): Boolean {
-            val id = this.layoutPosition
-            onSelectionListener?.onLongClick(itemList[id], view, id)
+           /* val id = this.layoutPosition
+            onSelectionListener?.onLongClick(itemList[id], view, id)*/
             return true
         }
 

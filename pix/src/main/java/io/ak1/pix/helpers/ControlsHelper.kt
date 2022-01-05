@@ -256,7 +256,7 @@ fun FragmentPixBinding.longSelectionStatus(
         DrawableCompat.setTint(gridLayout.selectionBack.drawable, colorSurface)
         DrawableCompat.setTint(gridLayout.selectionCheck.drawable, colorSurface)
     } else {
-        gridLayout.selectionCheck.show()
+        //gridLayout.selectionCheck.show()
         DrawableCompat.setTint(gridLayout.selectionBack.drawable, colorPrimaryDark)
         DrawableCompat.setTint(gridLayout.selectionCheck.drawable, colorPrimaryDark)
         gridLayout.topbar.setBackgroundColor(colorSurface)

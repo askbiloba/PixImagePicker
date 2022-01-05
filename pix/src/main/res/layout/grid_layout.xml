@@ -134,7 +134,8 @@
                             android:layout_gravity="center_vertical|right"
                             android:layout_marginRight="20dp"
                             android:gravity="center_vertical"
-                            android:src="@drawable/ic_check_box" />
+                            android:src="@drawable/ic_check_box"
+                            android:visibility="gone"/>
                     </FrameLayout>
 
                     <androidx.appcompat.widget.LinearLayoutCompat
