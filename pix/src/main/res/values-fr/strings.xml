@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pix_bottom_message_with_video">Maintenez pour la vidéo, appuyez pour la photo</string>
+    <string name="pix_bottom_message_without_video">Swipez vers le haut pour voir la gallerie</string>
+    <string name="pix_last_month">Mois dernier</string>
+    <string name="pix_last_week">Semaine derniére</string>
+    <string name="pix_ok">OK</string>
+    <string name="pix_recent">Récent</string>
+    <string name="pix_selected">Séléctionnée(s)</string>
+    <string name="pix_tap_to_select">Tappez pour sélectionner</string>
+    <string name="selection_limiter_pix">Vous ne pouvez pas selectionner plus de %d photos</string>
+</resources>
