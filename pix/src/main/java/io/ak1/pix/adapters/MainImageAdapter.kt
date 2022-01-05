@@ -153,9 +153,9 @@ internal class MainImageAdapter(context: Context, internal val spanCount: Int) :
         }
 
         override fun onLongClick(view: View): Boolean {
-            val id = this.layoutPosition
+          /*  val id = this.layoutPosition
             onSelectionListener!!.onLongClick(itemList[id], view, id)
-            return true
+           */ return true
         }
 
         fun bind(image: Img) {
