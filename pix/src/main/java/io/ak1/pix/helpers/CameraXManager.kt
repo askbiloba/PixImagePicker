@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.net.Uri
 import android.util.DisplayMetrics
 import android.util.Log
+import android.util.Size
 import android.widget.Toast
 import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
@@ -92,7 +93,7 @@ class CameraXManager(
         // Preview
         preview = Preview.Builder()
             // We request aspect ratio but no resolution
-            .setTargetAspectRatio(screenAspectRatio)
+            //.setTargetAspectRatio(screenAspectRatio)
             // Set initial target rotation
             .setTargetRotation(rotation)
             .build()
@@ -113,7 +114,7 @@ class CameraXManager(
                     .setCaptureMode(ImageCapture.CAPTURE_MODE_MINIMIZE_LATENCY)
                     // We request aspect ratio but no resolution to match preview config, but letting
                     // CameraX optimize for whatever specific resolution best fits our use cases
-                    .setTargetAspectRatio(screenAspectRatio)
+                    //.setTargetAspectRatio(screenAspectRatio)
                     // Set initial target rotation, we will have to call this again if rotation changes
                     // during the lifecycle of this use case
                     .setTargetRotation(rotation)
@@ -143,7 +144,7 @@ class CameraXManager(
                     .setCaptureMode(ImageCapture.CAPTURE_MODE_MINIMIZE_LATENCY)
                     // We request aspect ratio but no resolution to match preview config, but letting
                     // CameraX optimize for whatever specific resolution best fits our use cases
-                    .setTargetAspectRatio(screenAspectRatio)
+                    //.setTargetAspectRatio(screenAspectRatio)
                     // Set initial target rotation, we will have to call this again if rotation changes
                     // during the lifecycle of this use case
                     .setTargetRotation(rotation)
@@ -199,7 +200,8 @@ class CameraXManager(
             videoBitrate?.let { setBitRate(it) }
             audioBitrate?.let { setAudioBitRate(it) }
             videoFrameRate?.let { setVideoFrameRate(it) }
-        }.setTargetAspectRatio(screenAspectRatio)
+
+        }.setMaxResolution(Size(960, 960))//.setTargetAspectRatio(screenAspectRatio)
         return builder.build()
     }
 
