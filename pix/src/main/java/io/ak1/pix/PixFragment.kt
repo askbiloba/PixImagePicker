@@ -95,7 +95,6 @@ class PixFragment(private val resultCallback: ((PixEventCallback.Results) -> Uni
     }
 
 
-    @InternalCoroutinesApi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         requireActivity().setup()
