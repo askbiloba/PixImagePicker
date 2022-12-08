@@ -241,32 +241,33 @@ class PixFragment(private val resultCallback: ((PixEventCallback.Results) -> Uni
 
     private fun setupControls() {
         binding.setupClickControls(model, cameraXManager, options) { int, uri ->
-            when (int) {
-                0 -> model.returnObjects()
-                1 -> mBottomSheetBehavior?.state = BottomSheetBehavior.STATE_COLLAPSED
-                2 -> model.longSelection.postValue(true)
-                3 -> requireActivity().scanPhoto(uri.toFile()) { it ->
-                    if (model.selectionList.value.isNullOrEmpty()) {
+            if(isAdded) {
+                when (int) {
+                    0 -> model.returnObjects()
+                    1 -> mBottomSheetBehavior?.state = BottomSheetBehavior.STATE_COLLAPSED
+                    2 -> model.longSelection.postValue(true)
+                    3 -> requireActivity().scanPhoto(uri.toFile()) { it ->
+                        if (model.selectionList.value.isNullOrEmpty()) {
+                            model.selectionList.value?.add(Img(contentUrl = it))
+                            scope.cancel(CancellationException("canceled intentionally"))
+                            model.returnObjects()
+                            return@scanPhoto
+                        }
                         model.selectionList.value?.add(Img(contentUrl = it))
-                        scope.cancel(CancellationException("canceled intentionally"))
-                        model.returnObjects()
-                        return@scanPhoto
+                        Handler(Looper.getMainLooper()).post {
+                            binding.setSelectionText(
+                                requireActivity(),
+                                (model.selectionList.value ?: HashSet()).size
+                            )
+                            options.preSelectedUrls.clear()
+                            options.preSelectedUrls.addAll(
+                                (model.selectionList.value ?: HashSet()).map { it.contentUrl })
+                            retrieveMedia()
+                        }
                     }
-                    model.selectionList.value?.add(Img(contentUrl = it))
-                    Handler(Looper.getMainLooper()).post {
-                        binding.setSelectionText(
-                            requireActivity(),
-                            (model.selectionList.value ?: HashSet()).size
-                        )
-                        options.preSelectedUrls.clear()
-                        options.preSelectedUrls.addAll(
-                            (model.selectionList.value ?: HashSet()).map { it.contentUrl })
-                        retrieveMedia()
-                    }
+                    4 -> if (model.longSelectionValue) binding.gridLayout.sendButtonStateAnimation(false)
+                    5 -> if (model.longSelectionValue) binding.gridLayout.sendButtonStateAnimation(true)
                 }
-                4 -> if (model.longSelectionValue) binding.gridLayout.sendButtonStateAnimation(false)
-                5 -> if (model.longSelectionValue) binding.gridLayout.sendButtonStateAnimation(true)
-
             }
         }
     }
